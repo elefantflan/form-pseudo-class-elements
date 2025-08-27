@@ -6,12 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        fieldset{
+            padding:30px;
+        }
+
+        label{
+            margin-right:10px;
+        }
+
         input:required {
         border: 2px solid;
         }
 
         input:optional {
         border: 2px dashed;
+        }
+
+        fieldset > div {
+        margin-bottom: 20px;
+        display: flex;
+        flex-flow: row wrap;
+        }
+        input + span {
+        position: relative;
+        }
+
+        input:required + span::after {
+        font-size: 0.7rem;
+        position: absolute;
+        content: "required";
+        color: white;
+        background-color: black;
+        padding: 5px 10px;
+        top: -26px;
+        left: -70px;
         }
     </style>
 </head>
@@ -22,7 +50,8 @@
           <div>
             <label for="fname">First name: </label>
             <input id="fname" name="fname" type="text" required />
-          </div>
+            <span></span>
+        </div>
           <div>
             <label for="lname">Last name: </label>
             <input id="lname" name="lname" type="text" required />
